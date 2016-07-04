@@ -1,0 +1,88 @@
+body {
+    font-family: 'Source Code Pro';
+}
+
+.jumbotron {
+    background-color: #333;
+    min-height: 150px;
+}
+
+.jumbotron>.header {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    color: #f0db4f;
+    font-size: 5.7em;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.jumbotron>.header-text {
+    color: #f0db4f;
+}
+
+#page-header {
+    margin-bottom: 5%;
+}
+
+a {
+    color: #333;
+}
+
+a:hover {
+    color: #333;
+}
+
+a:visited {
+    color: #43853d;
+}
+
+::-moz-selection {
+    color: #43853d;
+}
+
+::selection {
+    color: #43853d;
+}
+
+.card-block {
+    background-color: #f0db4f;
+    margin: 1em 0;
+    padding: 2em;
+}
+
+.card-title {
+    padding: 0.7em;
+    margin-top: 0;
+    color: #f0db4f;
+    background-color: #333;
+}
+
+.card {
+    background-color: #333;
+    margin-bottom: 1em;
+}
+
+@media handheld and (min-width: 20em), screen and (max-width: 45em) {
+    .jumbotron>.header {
+        margin-top: 0;
+        margin-bottom: 0.3em;
+        color: #f0db4f;
+        font-size: 2.5em;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+        0px 8px 13px rgba(0,0,0,0.1),
+        0px 18px 23px rgba(0,0,0,0.1);
+    }
+
+    .jumbotron>.header-text {
+        color: #f0db4f;
+        font-size: 1em;
+    }
+
+    #heading {
+        font-size: 1.7em;
+    }
+
+    .resources {
+    }
+}
