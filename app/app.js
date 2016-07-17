@@ -1,62 +1,70 @@
-'use strict';
-$(function() {
-    var divCard = '<div class="card col-xs-12 col-md-12 col-lg-6">',
-        divEnd = '</div>',
-        divCardBlock = '<div class="card-block">',
-        hCardTitle = '<h4 class="card-title">',
-        hCardTitleEnd = '</h4>',
-        pCardText = '<p class="card-text">',
-        pCardTextFoot = '<p class="card-footer text-muted">',
-        pCardTextEnd = '</p>',
-        faThumbsUp = '<button class="clickUp"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>',
-        faThumbsDown = '<button class="clickDown"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>',
-        list = $('.resources'),
-        firebaseRef = firebase.database().ref('/resources/'),
-        resources = [];
+(function() {
 
-    function renderRes() {
-        $.each(resources, function(j) {
-            var pHref = '<p class="card-text">Visit: <a href="' +
-                            resources[j].url +
-                            '" target="_blank">' +
-                            resources[j].name +
-                        '</a></p>';
+    var fbResources = firebase.database().ref('resources');
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
 
 
-            list.append(
-                divCard +
-                    divCardBlock +
-                        hCardTitle +  resources[j].name + hCardTitleEnd +
-                        pCardText +  resources[j].description + pCardTextEnd +
-                        pHref +
-                        pCardTextFoot + faThumbsUp + ' ' + resources[j].ratingUp + '&nbsp' + '&nbsp' + '&nbsp' +'&nbsp' + faThumbsDown + ' ' + resources[j].ratingDown + pCardTextEnd +
-                    divEnd +
-                divEnd
-            );
+    fbResources.on('value', function(snap) {
+        //returning data and rendering template
+        var data = snap.val();
+        $('#container').empty().append(template(data));
 
-            var thumbUp = $('.clickUp'),
-                resVal = resources[j].ratingUp,
-                resName = resources[j].name;
-            thumbUp.on('click', function () {
-                resVal++
-                console.log('vrednost ratingup-a za ' + resName + ' je '  + resources[j].ratingUp + ', a bice: ' + resVal);
-                console.log('------');
-            })
+        //click event handler for ratingUp
+        $('button.up').on('click', function (e) {
 
-        });
-    }
+            //convert button value to number
+            var btntext = Number($(this).text());
+            //assign to tempId variable the id of the clicked button
+            var tempId = this.id;
+            $(this).text(++btntext);
 
-    firebaseRef
-        .once('value')
-        .then(function(snapshot) {
-            var data = snapshot.val();
-            //console.log(data);
-            for(var i = 0; i < data.length; i++) {
-                resources.push(data[i]);
-            }
-            renderRes();
+
+                //update fb with new value of button element
+                var newBtnValue = $(this).text();
+                //loop through childSnap for match of button id = id from fb
+                snap.forEach(function (childSnap) {
+                    var key = childSnap.key;
+                    var temp;
+                    if (tempId === key) {
+                        temp = key;
+                        fbResources.child(temp).update({"ratingUp": newBtnValue}, function (err) {
+                            if (err) {
+                                console.log('god damn error is: ' + err);
+                            } else {
+                                console.log('updated fb-s resource: ' + childSnap.val().name + ' ratingUp.');
+                            }
+                        });
+                    }
+                });
         });
 
-});
+        //click event handler for ratingDown
+        $('button.down').on('click', function (e) {
+            e.preventDefault();
+            //convert button value to number
+            var btntext = Number($(this).text());
+            //assign to tempId variable the id of the clicked button
+            var tempId = this.id;
+            $(this).text(++btntext);
 
-
+            //update fb with new value of button element
+            var newBtnValue = $(this).text();
+            //loop through childSnap for match of button id = id from fb
+            snap.forEach(function (childSnap) {
+                var key = childSnap.key;
+                var temp;
+                if (tempId === key) {
+                    temp = key;
+                    fbResources.child(temp).update({"ratingDown": newBtnValue}, function (err) {
+                        if (err) {
+                            console.log('god damn error is: ' + err);
+                        } else {
+                            console.log('updated fb-s resource: ' + childSnap.val().name + ' ratingDown.');
+                        }
+                    });
+                }
+            });
+        });
+    });
+})();

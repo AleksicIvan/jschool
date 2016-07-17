@@ -5,6 +5,10 @@ body {
 .jumbotron {
     background-color: #333;
     min-height: 150px;
+    border-radius: 0;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 .jumbotron>.header {
@@ -12,29 +16,40 @@ body {
     margin-bottom: 0.3em;
     color: #f0db4f;
     font-size: 5.7em;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-    0px 8px 13px rgba(0,0,0,0.1),
-    0px 18px 23px rgba(0,0,0,0.1);
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+    0 8px 13px rgba(0,0,0,0.1),
+    0 18px 23px rgba(0,0,0,0.1);
 }
 
 .jumbotron>.header-text {
     color: #f0db4f;
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+    0 8px 13px rgba(0,0,0,0.1),
+    0 18px 23px rgba(0,0,0,0.1);
+
 }
 
 #page-header {
     margin-bottom: 5%;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.4),
+    0 4px 6px rgba(0,0,0,0.1),
+    0 9px 11px rgba(0,0,0,0.1);
+
 }
 
-a {
-    color: #333;
+a:link {
+    color: #5cb85c;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #333;
+    color: #008000;
+    text-decoration: none;
 }
 
 a:visited {
-    color: #43853d;
+    color: #5cb85c;
+    text-decoration: none;
 }
 
 ::-moz-selection {
@@ -45,23 +60,27 @@ a:visited {
     color: #43853d;
 }
 
-.card-block {
-    background-color: #f0db4f;
-    margin: 1em 0;
-    padding: 2em;
-}
-
-.card-title {
-    padding: 0.7em;
+h1 {
     margin-top: 0;
-    color: #f0db4f;
+}
+.entry {
+    border: 5px solid #f0db4f;
+    margin-bottom: 1em;
+    padding: 1em 1em;
     background-color: #333;
+    color: #f0db4f;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
-.card {
-    background-color: #333;
-    margin-bottom: 1em;
+.entry:hover {
+    background-color: #f0db4f;
+    opacity: 0.9;
+    border:6.9px solid #333;
+    color: #333;
 }
+
 
 @media handheld and (min-width: 20em), screen and (max-width: 45em) {
     .jumbotron>.header {
@@ -69,9 +88,9 @@ a:visited {
         margin-bottom: 0.3em;
         color: #f0db4f;
         font-size: 2.5em;
-        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-        0px 8px 13px rgba(0,0,0,0.1),
-        0px 18px 23px rgba(0,0,0,0.1);
+        text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+        0 8px 13px rgba(0,0,0,0.1),
+        0 18px 23px rgba(0,0,0,0.1);
     }
 
     .jumbotron>.header-text {
@@ -83,6 +102,4 @@ a:visited {
         font-size: 1.7em;
     }
 
-    .resources {
-    }
 }
