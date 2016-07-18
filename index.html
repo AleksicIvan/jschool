@@ -19,7 +19,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-6 col-md-offset-3" id="page-header">
+            <div class="col-xs-12 col-md-12" id="page-header">
                 <h1 class="text-xs-center" id="heading">Welcome to the JS and WebDev learning jungle!</h1>
             </div>
         </div>
@@ -45,10 +45,10 @@
                     <a href="{{url}}" target="_blank">Visit {{name}} for more details.</a>
                 </p>
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;
-                <button class="up btn btn-success" id="{{id}}">{{ratingUp}}</button>
+                <button class="up btn btn-success" ratingUp="{{id}}">{{ratingUp}}</button>
                     &nbsp; &nbsp;
                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;
-                <button class="down btn btn-danger" id="{{id}}">{{ratingDown}}</button>
+                <button class="down btn btn-danger" ratingDown="{{id}}">{{ratingDown}}</button>
 
             </div>
         {{/each}}

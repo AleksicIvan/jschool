@@ -18,9 +18,7 @@
                         var keya = a.ratingUp,
                             keyb = b.ratingUp;
                             //sorting by highest ratings
-                            if(keya > keyb) return -1;
-                            if(keya < keyb) return 1;
-                        return 0;
+                            return keyb - keya;
                     });
             }
         });
