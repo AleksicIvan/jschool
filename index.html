@@ -38,7 +38,7 @@
     <script src="app/js/initFB.js"></script>
     <script id="entry-template" type="text/x-handlebars-template">
         {{#each resourcesByRatingUp}}
-            <div class="entry col-xs-12 col-md-12 col-lg-12" sortKeyUp="{{ratingUp}}">
+            <div class="entry col-xs-12 col-md-12 col-lg-12"">
                 <h1>{{name}}</h1>
                 <p>{{description}}</p>
                 <p>
@@ -49,6 +49,7 @@
                     &nbsp; &nbsp;
                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;
                 <button class="down btn btn-danger" id="{{id}}">{{ratingDown}}</button>
+
             </div>
         {{/each}}
     </script>
