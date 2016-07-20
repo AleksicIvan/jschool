@@ -93,10 +93,9 @@ hr.style-two {
 }
 
 img.preview {
-    height: 60%;
-    width: 60%;
+    height:18em;
+    width: 33em;
     box-sizing: border-box;
-    max-width: 100%;
     vertical-align: middle;
     background-color: #333;
 }
@@ -131,8 +130,8 @@ img.preview {
     }
 
     img.preview {
-        height: 90%;
-        width: 90%;
+        height: 9rem;
+        width: 15rem;
         box-sizing: border-box;
         max-width: 100%;
         vertical-align: middle;
