@@ -44,7 +44,7 @@
                 <p>{{description}}</p>
                 <p>
                     <a href="{{url}}" target="_blank">
-                        <img id="preview" src="{{image}}" alt="{{image}}" class="img-thumbnail"/>
+                        <img src="{{image}}" alt="{{image}}" class="img-thumbnail loading-image preview"/>
                     </a>
                 </p>
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;
@@ -52,7 +52,6 @@
                     &nbsp; &nbsp;
                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;
                 <button class="down btn btn-danger" id="{{id}}">{{ratingDown}}</button>
-
             </div>
         {{/each}}
     </script>
