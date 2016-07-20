@@ -38,11 +38,14 @@
     <script src="app/js/initFB.js"></script>
     <script id="entry-template" type="text/x-handlebars-template">
         {{#each resourcesByRatingUp}}
-            <div class="entry col-xs-12 col-md-12 col-lg-12"">
+            <div class="entry col-xs-12 col-md-12 col-lg-12">
                 <h1>{{name}}</h1>
+                <hr class="style-two"/>
                 <p>{{description}}</p>
                 <p>
-                    <a href="{{url}}" target="_blank">Visit {{name}} for more details.</a>
+                    <a href="{{url}}" target="_blank">
+                        <img id="preview" src="{{image}}" alt="{{image}}" class="img-thumbnail"/>
+                    </a>
                 </p>
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;
                 <button class="up btn btn-success" id="{{id}}">{{ratingUp}}</button>
