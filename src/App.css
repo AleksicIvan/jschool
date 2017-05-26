@@ -121,7 +121,7 @@ img.preview {
 }
 
 .loading-image {
-    background: transparent url('../public/images/loading.gif') center no-repeat;
+    background: transparent url('/images/loading.gif') center no-repeat;
 }
 
 .img-thumbnail {
